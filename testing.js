@@ -15,6 +15,9 @@ page.onError = function(msg, trace) {
   console.error(msg);
   phantom.exit(1);
 }
+page.onConsoleMessage = function(msg, lineNum, sourceId) {
+  console.log('CONSOLE: ' + msg + ' (from line #' + lineNum + ' in "' + sourceId + '")');
+};
 page.onLoadStarted = function() {
   loadInProgress = true;
   console.log("load started");
