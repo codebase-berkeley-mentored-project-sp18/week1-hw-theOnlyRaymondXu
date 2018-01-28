@@ -17,20 +17,28 @@ page.open(getFileUrl("index.html"), function (status) {
   if (status !== 'success') {
     phantom.exit(1);
   } else {
-    window.setTimeout(function() {
-      if (!loadInProgress) {
-        page.evaluate(function() {
-          console.log(window.onload);
-          window.main();
-        });
-        phantom.exit();
-      }
-    }, 1000);
+    // try to inject page.js
+    if (
+      page.injectJs("q1.js") &&
+      page.injectJs("q2.js") &&
+      page.injectJs("q3.js") &&
+      page.injectJs("q4.js") &&
+      page.injectJs("main.js")
+    ) {
+      // scripts were injected, so evaluate:
+      var result = page.evaluate(function() {
+          return document.body.getAttribute("data-changed") || "not found";
+      });
+      console.log(result);
+      phantom.exit();
+    }
+    console.log("Failed to inject scripts");
+    phantom.exit(1);
   }
 });
 
 page.onError = function(msg, trace) {
-  console.error(msg);
+  console.log("TEST FAILED--> " + msg);
   phantom.exit(1);
 }
 page.onConsoleMessage = function(msg, lineNum, sourceId) {
