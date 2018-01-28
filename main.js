@@ -84,7 +84,7 @@ window.addEventListener("load", function() {
       return "growl";
     }
     var giveDogCommands = bind(giveCommands, dog);
-    assert(giveDogCommands("roll", "beg", "sit") === "woof", "FAILED function args list");
+    assert(giveDogCommands("roll", "beg", "sit") === "wof", "FAILED function args list");
     console.log("All test cases passed");
   } catch (e) {
     console.error("Some test cases failed.");
