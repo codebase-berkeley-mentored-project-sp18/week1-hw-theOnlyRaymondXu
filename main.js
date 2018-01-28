@@ -4,7 +4,7 @@ function assert(statement, err) {
   }
 }
 
-window.addEventListener("load", function() {
+var main = function() {
   // Question 1
   console.log("Testing question 1...");
   try {
@@ -28,7 +28,7 @@ window.addEventListener("load", function() {
     assert(filterTwoAndThree(-24) === 0, "FAILED filterTwoAndThree(-24) === 0");
     console.log("All test cases passed!");
   } catch (e) {
-    console.error("Some test cases failed.");
+    throw e;
   }
 
   // Question 2
@@ -44,7 +44,7 @@ window.addEventListener("load", function() {
     assert(censorBadWords("stanfurd", badWords) === "stanfurd", "FAILED 'stanfurd'");
     console.log("All test cases passed!");
   } catch (e) {
-    console.error("Some test cases failed.");
+    throw e;
   }
 
   // Question 3
@@ -61,7 +61,7 @@ window.addEventListener("load", function() {
     }) === 3, "FAILED depth 3 object");
     console.log("All test cases passed!");
   } catch (e) {
-    console.error("Some test cases failed.");
+    throw e;
   }
 
   // Question 4
@@ -84,9 +84,10 @@ window.addEventListener("load", function() {
       return "growl";
     }
     var giveDogCommands = bind(giveCommands, dog);
-    assert(giveDogCommands("roll", "beg", "sit") === "wof", "FAILED function args list");
+    assert(giveDogCommands("roll", "beg", "sit") === "woof", "FAILED function args list");
     console.log("All test cases passed");
   } catch (e) {
-    console.error("Some test cases failed.");
+    throw e;
   }
-});
+}
+window.addEventListener("load", main);
