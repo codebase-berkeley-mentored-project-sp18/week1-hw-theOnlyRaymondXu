@@ -1,8 +1,24 @@
 var page = require('webpage').create();
 var fs = require('fs');
 
+var loadInProgress = false;
+
 page.open(fs.workingDirectory + fs.separator + "index.html");
+
+var interval = setInterval(function() {
+  if (!loadInProgress) {
+    phantom.exit();
+  }
+}, 250);
 
 page.onError = function(msg, trace) {
   console.error(msg);
+}
+page.onLoadStarted = function() {
+  loadInProgress = true;
+  console.log("load started");
+};
+page.onLoadFinished = function() {
+  console.log("load finished");
+  loadInProgress = false;
 }
