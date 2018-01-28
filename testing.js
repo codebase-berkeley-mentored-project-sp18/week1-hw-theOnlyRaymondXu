@@ -13,6 +13,7 @@ var interval = setInterval(function() {
 
 page.onError = function(msg, trace) {
   console.error(msg);
+  phantom.exit(1);
 }
 page.onLoadStarted = function() {
   loadInProgress = true;
