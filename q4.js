@@ -37,13 +37,7 @@ Example 2:
 
 
 function bind(f, obj) {
-  return function(...args) {
-    // do some shit to make up a random key that the target object probably doesn't have
-    // we're not going to worry about the case where the target object does have this key
-    var tempKey = Math.random().toString(36);
-    obj[tempKey] = f;
-    var output = obj[tempKey](...args);
-    delete obj[tempKey];
-    return output;
-  }
+  //================
+  // YOUR CODE HERE
+  //================
 }
