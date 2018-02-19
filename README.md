@@ -37,7 +37,7 @@ Reading: [Arrays](https://theandrewchan.gitbooks.io/javascript-crash-course/cont
 
 In q2.js, implement a function that takes in a string as well as an array of bad words,
 and returns the first input but with all occurences of bad words
-replaced by the string "*CENSORED*".
+replaced by the string `*CENSORED*`.
 
 You may assume that the input string contains only alphanumeric characters and spaces.
 
