@@ -19,7 +19,7 @@ If you don't want to wait for the autograder to see if your code works, you can 
 
 ## Homework Questions
 
-Welcome to the mentored project! This week's homework is just to get you familiar with using JavaScript. The questions you need to complete are short and simple.
+Welcome to the mentored project! This week's homework is just to get you familiar with using JavaScript. The questions you need to complete are short and simple. Once you've completed the questions, check the branch `solutions` for the homework solutions.
 
 ### Question 1 - Operators and Functions
 
