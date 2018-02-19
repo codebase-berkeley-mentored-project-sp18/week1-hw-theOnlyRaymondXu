@@ -54,4 +54,24 @@ Reading: [Objects, 4.3](https://theandrewchan.gitbooks.io/javascript-crash-cours
 
 In q4.js, create a function that replicates the effect of the [`Function.prototype.bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) function.
 That is, fill in the body of `bind` below such that it will create a new function identical to `f` that,
-when called, has its `this` keyword set to the provided value of `obj`.
+when called, has its `this` keyword set to the provided value of `obj`. _Don't use any of the following functions_:
+* [`Function.prototype.bind()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+* [`Function.prototype.call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+* [`Function.prototype.apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+
+Once you finish filling in the function, look at the solution (located in branch `solutions`), which may be
+different than your code. What is the expected behavior of the solution when you bind a function more than once, e.g. in the following code:
+
+```javascript
+var personA = {
+  name: "Andrew",
+  sayHi: function() {
+    return this.name;
+  },
+};
+var brianSaysHi = bind(personA.sayHi, { name: "Brian" });
+var andrewSaysHi = bind(brianSaysHi, personA);
+andrewSaysHi();
+```
+
+Does it work the same as the real `Function.prototype.bind` function?
