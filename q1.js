@@ -32,4 +32,10 @@ function makeFilter(f, g, h) {
   //================
   // YOUR CODE HERE
   //================
+  var p = function(x) {
+  	if (g(x) && f(x)) {
+  		return g(x);
+  	}
+  }
+  return p;
 }
