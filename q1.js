@@ -34,7 +34,9 @@ function makeFilter(f, g, h) {
   //================
   var p = function(x) {
   	if (g(x) && f(x)) {
-  		return g(x);
+  		return h(x);
+  	} else {
+  		return x;
   	}
   }
   return p;
