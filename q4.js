@@ -40,4 +40,8 @@ function bind(f, obj) {
   //================
   // YOUR CODE HERE
   //================
+  var working = function(...args) {
+    return obj.f(args);
+  }
+  return working;
 }
