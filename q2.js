@@ -18,4 +18,14 @@ function censorBadWords(inputStr, badWords) {
   //================
   // YOUR CODE HERE
   //================
+  var original = inputStr.split();
+  var result = "";
+  for (var i = 0; i < original.length; i+=1) {
+  	if (badWords.indexOf(original[i]) > -1) {
+  		result += "*CENSORED*";
+  	} else {
+  		result += original[i];
+  	}
+  }
+  return result;
 }
