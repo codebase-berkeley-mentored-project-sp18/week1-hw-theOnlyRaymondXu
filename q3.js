@@ -26,13 +26,15 @@ function getObjectNestingDepth(inputObject) {
   // YOUR CODE HERE
   //================
   var keys = Object.keys(inputObject);
-  if(keys.length === 0) {
+  if(typeof inputObject !== 'object') {
   	return 0;
   } else {
   	var max = 1;
   	for(var i = 0; i < keys.length; i+=1) {
-  		var obj = keys[i];
-  		max = Math.max(max, getObjectNestingDepth(obj));
+  		console.log("here " + keys);
+  		var key = keys[i];
+  		var temp = 1 + getObjectNestingDepth(inputObject[key]);
+  		max = Math.max(max, temp);
   	}
   	return max;
   }
