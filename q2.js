@@ -23,7 +23,7 @@ function censorBadWords(inputStr, badWords) {
   var result = "";
   for (var i = 0; i < original.length; i+=1) {
   	if (badWords.indexOf(original[i]) > -1) {
-  		result += "*CENSORED*";
+  		result += "*CENSORED*" + " ";
   	} else {
   		result += original[i] + " ";
   	}
