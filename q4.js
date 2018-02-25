@@ -48,9 +48,10 @@ function bind(f, obj) {
   //       }
   //    }
   // }
-  obj.work = new function(...args) {
-    return f(args);
+  return function(...args) {
+    obj["temp"] = f;
+    var result = obj["temp"](...args);
+    delete obj["temp"];
+    return result;
   }
-  console.log(obj.work);
-  return obj.work;
 }
