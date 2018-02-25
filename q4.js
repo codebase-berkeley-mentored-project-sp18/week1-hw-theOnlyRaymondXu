@@ -40,8 +40,17 @@ function bind(f, obj) {
   //================
   // YOUR CODE HERE
   //================
-  var working = function(...args) {
-    return obj.f(args);
+  // var working = function(...args) {
+  //    var keys = Object.keys(obj);
+  //    for (var i = 0; i < keys.length; i+=1) {
+  //       if(keys[i] === f) {
+  //         return obj[keys[i]];
+  //       }
+  //    }
+  // }
+  obj.work = new function(...args) {
+    return f(args);
   }
-  return working;
+  console.log(obj.work);
+  return obj.work;
 }
